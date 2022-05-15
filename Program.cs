@@ -50,7 +50,7 @@ n.test(2, @"
 |XXX|
 ");
 
-n.test(2, @"
+n.test(6, @"
 | XX|
 |   |
 |XXX|
@@ -66,6 +66,24 @@ n.test(6, @"
 | XX|
 |   |
 | XX|
+");
+
+n.test(2, @"
+|X  |
+|X  |
+|X  |
+");
+
+n.test(0, @"
+|   |
+|   |
+|XXX|
+");
+
+n.test(3, @"
+|X  |
+|   |
+|   |
 ");
 
 n.summary();

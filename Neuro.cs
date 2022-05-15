@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 internal class Neuro
 {
     public Neuro()
@@ -41,7 +36,7 @@ internal class Neuro
             {
                 {  0,   -1, -0.3f },
                 {  1,    0, -1 },
-                {  0.3f, 1, 0 }
+                {  0.3f, 1,  0 }
             },
         };
 
@@ -63,7 +58,7 @@ internal class Neuro
         for (int i = 0; i < w.GetLength(1); i++)
             for (int j = 0; j < w.GetLength(2); j++)
             {
-                var x = (i == j) ? 1 : a[i, j];
+                var x = (i == 1 && j == 1) ? 1 : a[i, j];
                 r += w[k, i, j] * x;
             }
         return r;
