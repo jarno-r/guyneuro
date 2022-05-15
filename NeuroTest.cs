@@ -55,13 +55,14 @@ public class NeuroTest
                 a[i, j] = lines[i][j + 1] == 'X' ? 1 : 0;
         }
 
+        Console.WriteLine();
         ShowMatrix(a);
 
         float[] r = neuro.evaluate(a);
         int k = Neuro.argmax(r);
         for (int i = 0; i < r.Length; i++)
         {
-            Console.WriteLine($"{i} {r[i],5} {(i == k ? "*" : "")}");
+            Console.WriteLine($"{i} {r[i],7:0.##} {(i == k ? "*" : "")}");
         }
         if (expect >= 0)
         {

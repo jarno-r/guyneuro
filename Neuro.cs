@@ -30,19 +30,18 @@ internal class Neuro
     }
 
     public float[,,] w = new float[8, 3, 3];
-
     public void computeWeights()
     {
         float[,,] p = {
             {
-                {  0,-2, 0},
-                {  0, 0, 0},
-                {  0, 2, 0}
+                {  -0.1f, -2, -0.1f},
+                {   1,     0,  1},
+                {   0.1f,  2,  0.1f}
             },
             {
-                {  0,   -1, -0.1f },
+                {  0,   -1, -0.3f },
                 {  1,    0, -1 },
-                {  0.1f, 1, 0 }
+                {  0.3f, 1, 0 }
             },
         };
 
@@ -82,11 +81,13 @@ internal class Neuro
 
     public static int argmax(float[] a)
     {
+        float EPSILON = 1e-4f;
+
         int n = -1;
         float m = float.NegativeInfinity;
         for (int i = 0; i < a.Length; i++)
         {
-            if (a[i] > m)
+            if (a[i] > m + EPSILON)
             {
                 m = a[i];
                 n = i;
@@ -99,6 +100,4 @@ internal class Neuro
     {
         return argmax(evaluate(a));
     }
-
-    
 }
